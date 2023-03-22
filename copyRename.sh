@@ -8,9 +8,6 @@ COUNTER=0;
 
 for FILE in "${@:2}";
 do
-	basename "$FILE";
-	f=$(basename -- "$FILE")
-	echo "$f";
 	echo "cp $FILE $1_$COUNTER$FILENAME_EXTENSION";
 	cp $FILE $1_$COUNTER$FILENAME_EXTENSION;
 	COUNTER=$[$COUNTER +1];
