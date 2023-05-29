@@ -3,7 +3,7 @@ import shutil
 import glob
 
 
-def copy_file_with_counter(source_file_regex, destination_folder):
+def copy_file_with_counter(source_file_regex, destination_folder, basename):
     # Get the list of files in the source directory
     source_files = os.listdir()
 
@@ -12,7 +12,7 @@ def copy_file_with_counter(source_file_regex, destination_folder):
 
     for source_file in matching_files:
         # Extract the basename and extension of the source file
-        basename, extension = os.path.splitext(source_file)
+        _, extension = os.path.splitext(source_file)
         counter = 1
 
         # Generate the destination file path
@@ -33,5 +33,6 @@ def copy_file_with_counter(source_file_regex, destination_folder):
 # Take source file regex and destination folder as input
 source_file_regex = input("Enter the regular expression for the source file(s): ")
 destination_folder = input("Enter the path of the destination folder: ")
+basename = input("Enter the basename of the copied files: ")
 
-copy_file_with_counter(source_file_regex, destination_folder)
+copy_file_with_counter(source_file_regex, destination_folder, basename)
