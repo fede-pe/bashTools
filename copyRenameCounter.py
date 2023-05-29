@@ -1,6 +1,6 @@
 import os
-import re
 import shutil
+import glob
 
 
 def copy_file_with_counter(source_file_regex, destination_folder):
@@ -8,8 +8,7 @@ def copy_file_with_counter(source_file_regex, destination_folder):
     source_files = os.listdir()
 
     # Filter the files based on the provided regular expression
-    regex = re.compile(source_file_regex)
-    matching_files = [file for file in source_files if regex.match(file)]
+    matching_files = glob.glob(source_file_regex)
 
     for source_file in matching_files:
         # Extract the basename and extension of the source file
