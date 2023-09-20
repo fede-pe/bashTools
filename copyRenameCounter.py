@@ -16,7 +16,8 @@ def copy_file_with_counter(source_file_regex, destination_folder, basename):
         counter = 1
 
         # Generate the destination file path
-        destination_file = os.path.join(destination_folder, f"{basename}{extension}")
+        basename_with_counter = f"{basename}_{counter}"
+        destination_file = os.path.join(destination_folder, f"{basename_with_counter}{extension}")
 
         # Check if the destination file already exists
         while os.path.exists(destination_file):
